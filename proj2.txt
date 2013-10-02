@@ -1,0 +1,75 @@
+proj2.txt
+
+Name: Cory McDowell		Login: cs61c-jh
+
+Name: 
+
+1. 
+
+	cluster size of 6:
+
+		Running hollywood.sequ with denom = 100000 on clusters of size 6, it took 02:00:23. In our output, there were 21 nodes that had a distance of 0, so that means there were 21 starting nodes, so we performed 21 searches. There were 24 reducers used.
+
+	cluster of size 9:
+
+		Took 58 minutes. There were 14 searches, and 36 Reducers were used.
+
+	cluster of size 12:
+
+		Took 200 minutes. 48 Reducers were used.
+
+2. 
+
+	For the Hollywood dataset, using an input size of 6, a distance of 4 is at the 50th percentile, a distance of 5 is at the 90th percentile, and a distance of 5 is at the 95th percentile.
+
+3. 
+
+	cluster size of 12:
+
+		time = 
+		seconds = 
+		no_searches = 
+		S3N_BYTES_READ = 2,788,406,398 
+		data_size = S3N_BYTES_READ * 
+		processing_rate = data_size / seconds
+
+		processing rate = (MB/s)
+
+4.	
+
+	9 cluster is about 25% faster than 6 cluster
+	12 cluster is about 1/2 as fast as the 6 cluster.
+
+	Therefore hadoop must be a case of weak scaling, since our code was not run faster the more cores we added.
+	
+
+5.
+
+	MapReduce is an efficient technique for operating on large amounts of data because it splits up the work between a Map, and a Reduce phase among multiple cores. Instead of having one machine complete an entire process, it splits up the work so various machines work together and each do a piece of the problem. Combiners can be added to the mix to further enhance the efficience of MapReduce. Combiners will take the key value pairs from map, and perform a reduce-type function before writing the key, value pairs for reduce to use. This is another way to split up the work using MapReduce, adding another way for idle cores to be utilized without having to wait for other cores to finish their tasks. In the case of our SmallWorld assignment, a combiner could be the most useful in the BFS MapReduce phase. BFS MapReduce is where the majority of the computation gets done, and it is called multiple times. Therefore, if we used a combiner, we could split up the work being done in BFS MapReduce even more, allowing for our code to be executed more quickly and efficiently.
+
+6.	
+
+	6:$0.0262
+	9: $0.0187
+	12:$0.0
+
+7. 
+
+	-cb: ec2 usage had abnormal results. Estimate about 3 hours running the 9 instance cluster and 3 hours running the 6 instance cluster.
+	(27 + 18) * 0.68 = $30.60
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
